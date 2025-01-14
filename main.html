@@ -1,241 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meherun Nessa's Portfolio</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meherun Nessa's Portfolio</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f9fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-      line-height: 1.6;
-    }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    header {
-      background: #007bff;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-    }
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      background: #333;
-      padding: 10px 0;
-    }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #34495e;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      padding: 8px 15px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
 
-    nav a:hover {
-      background: #555;
-    }
+        nav a:hover {
+            background: #2c3e50;
+        }
 
-    .hero {
-      background: linear-gradient(135deg, #6c63ff, #0093e9);
-      color: white;
-      text-align: center;
-      padding: 50px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      min-height: 90vh;
-    }
+        .hero {
+            background: linear-gradient(135deg, #2980b9, #6dd5fa);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            min-height: 50vh;
+        }
 
-    .hero img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 3px solid white;
-      margin-bottom: 20px;
-    }
+        .hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin-bottom: 20px;
+        }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
 
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 25px;
-      max-width: 600px;
-    }
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            max-width: 400px;
+        }
 
-    .hero .cta-buttons {
-      display: flex;
-      gap: 15px;
-    }
+        .hero .cta-buttons {
+            display: flex;
+            gap: 15px;
+        }
 
-    .hero .cta-buttons a {
-      background: #ff5722;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      transition: background-color 0.3s;
-    }
+        .hero .cta-buttons a {
+            background: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
 
-    .hero .cta-buttons a:hover {
-      background: #e64a19;
-    }
+        .hero .cta-buttons a:hover {
+            background: #c0392b;
+        }
 
-    .skills-grid, .projects {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px 0;
-    }
+        /* Skills Section */
+        #skills {
+            padding: 40px 0;
+            text-align: center;
+            background: #ecf0f1;
+        }
 
-    .skill, .project-card {
-      text-align: center;
-      flex: 1 1 calc(25% - 20px);
-      min-width: 200px;
-    }
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
 
-    .skill img, .project-card img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
+        .skill {
+            text-align: center;
+            flex: 1 1 calc(25% - 20px);
+            min-width: 200px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
 
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 10px;
-    }
+        .skill:hover {
+            transform: translateY(-5px);
+        }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
+        .skill img {
+            max-width: 80px;
+            margin-bottom: 10px;
+        }
 
-      .hero p {
-        font-size: 1rem;
-      }
+        /* Projects Section */
+        #projects {
+            padding: 40px 0;
+        }
 
-      .hero img {
-        width: 120px;
-        height: 120px;
-      }
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
 
-      .skills-grid .skill, 
-      .projects .project-card {
-        flex: 1 1 calc(50% - 20px);
-      }
-    }
+        .project-card {
+            flex: 1 1 calc(33% - 20px);
+            min-width: 250px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
 
-    @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 1.5rem;
-      }
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
 
-      .hero p {
-        font-size: 0.9rem;
-      }
+        .project-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
 
-      .cta-buttons {
-        flex-direction: column;
-        gap: 10px;
-      }
+        /* Contact Section */
+        #contact {
+            padding: 40px 0;
+            text-align: center;
+            background: #ecf0f1;
+        }
 
-      .skills-grid .skill,
-      .projects .project-card {
-        flex: 1 1 100%;
-      }
-    }
-  </style>
+        #contact a {
+            color: #2980b9;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        #contact a:hover {
+            color: #1f639b;
+        }
+
+        /* Footer Section */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .skills-grid .skill,
+            .projects .project-card {
+                flex: 1 1 calc(50% - 20px);
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
+
+            footer {
+                font-size: 0.9rem;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .skills-grid .skill,
+            .projects .project-card {
+                flex: 1 1 100%;
+            }
+
+            footer {
+                font-size: 0.85rem;
+                padding: 20px;
+            }
+
+            nav {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
+
 <body>
+    <div class="container">
+        <header>
+            <h1>Portfolio of Meherun Nessa</h1>
+        </header>
 
-<header>
-  <h1>Portfolio of Meherun Nessa</h1>
-</header>
+        <nav>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-<nav>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
-</nav>
+        <div class="hero">
+            <img src="assets/images/profilepic.jpg" alt="Profile Picture">
+            <h1>Hello, I'm Meherun Nessa!</h1>
+            <p>A passionate and dedicated intern in Full-Stack Development. My goal is to create amazing user experiences with seamless functionality.</p>
+            <div class="cta-buttons">
+                <a href="#projects">See My Work</a>
+                <a href="#contact">Get in Touch</a>
+            </div>
+        </div>
 
-<div class="hero">
-  <img src="assets/images/profilepic.jpg" alt="Profile Picture">
-  <h1>Hello, I'm Meherun Nessa!</h1>
-  <p>
-    A passionate and dedicated intern in Full-Stack Development. My goal is to create amazing user experiences with seamless functionality.
-  </p>
-  <div class="cta-buttons">
-    <a href="#projects">See My Work</a>
-    <a href="#contact">Get in Touch</a>
-  </div>
-</div>
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill">
+                    <img src="assets/images/icons/html.png" alt="HTML">
+                    <p>HTML</p>
+                </div>
+                <div class="skill">
+                    <img src="assets/images/icons/css.png" alt="CSS">
+                    <p>CSS</p>
+                </div>
+                <div class="skill">
+                    <img src="assets/images/icons/js.png" alt="JavaScript">
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill">
+                    <img src="assets/images/icons/react.png" alt="React.js">
+                    <p>React.js</p>
+                </div>
+            </div>
+        </section>
 
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="skills-grid">
-    <div class="skill">
-      <img src="assets/images/icons/html.png" alt="HTML">
-      <p>HTML</p>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <img src="assets/images/full_stack_web_application.png" alt="Project 1">
+                    <h3>Full Stack Web Application</h3>
+                    <p>Developed a full-stack web application using React and Laravel. Implemented user authentication, dynamic content display, and database management.</p>
+                    <a href="#">Code</a> | <a href="#">Demo</a>
+                </div>
+                <div class="project-card">
+                    <img src="assets/images/Mobile Application.png" alt="Project 2">
+                    <h3>Mobile Application</h3>
+                    <p>Worked with Flutter to create a mobile app that integrates with web APIs for user management and real-time data processing.</p>
+                    <a href="#">Code</a> | <a href="#">Demo</a>
+                </div>
+                <div class="project-card">
+                    <img src="assets/images/E-Commerce Website.png" alt="Project 3">
+                    <h3>E-Commerce Website</h3>
+                    <p>Built an e-commerce website using React and Laravel, integrating a shopping cart, order management, and payment gateway.</p>
+                    <a href="#">Code</a> | <a href="#">Demo</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:dearoleander@gmail.com">dearoleander@gmail.com</a></p>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Meherun Nessa | All Rights Reserved</p>
+        </footer>
     </div>
-    <div class="skill">
-      <img src="assets/images/icons/css.png" alt="CSS">
-      <p>CSS</p>
-    </div>
-    <div class="skill">
-      <img src="assets/images/icons/js.png" alt="JavaScript">
-      <p>JavaScript</p>
-    </div>
-    <div class="skill">
-      <img src="assets/images/icons/react.png" alt="React.js">
-      <p>React.js</p>
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="projects">
-    <div class="project-card">
-      <img src="assets/images/project1.jpg" alt="Project 1">
-      <h3>Project 1</h3>
-      <p>Description of the project goes here.</p>
-      <a href="#">Code</a> | <a href="#">Demo</a>
-    </div>
-    <div class="project-card">
-      <img src="assets/images/project2.jpg" alt="Project 2">
-      <h3>Project 2</h3>
-      <p>Description of the project goes here.</p>
-      <a href="#">Code</a> | <a href="#">Demo</a>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:dearoleander@gmail.com">dearoleander@gmail.com</a></p>
-</section>
-
-<footer>
-  <p>&copy; 2025 Meherun Nessa | All Rights Reserved</p>
-</footer>
-
 </body>
+
 </html>
